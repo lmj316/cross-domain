@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/jquery-1.12.2.min.js"></script>
+</head>
+<body>
+    <button id="btn">点我解梦</button>
+</body>
+</html>
+<script>
+$('#btn').on('click', function() {
+    // console.log(666)
+    let query = '前端'
+    // http://v.juhe.cn/dream/query?key=a3bad6b379879791d5de72c98ea9e88d&q=${query}
+    $.ajax({
+        url: `/jiemeng`,
+        type: 'get',
+        success(res) {
+            console.log(res)
+        }
+    })
+})
+</script>

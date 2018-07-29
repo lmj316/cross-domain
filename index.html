@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>jsonp调用</title>
+        <script src="./jquery-1.12.2.min.js"></script>
+    </head>
+    <body>
+        <button class="btn1">调用豆瓣api</button>
+        <button class="btn2">调用豆瓣api</button>
+        <audio class="music" src="http://www.w3school.com.cn/i/horse.ogg" controls="controls">
+        Your browser does not support the audio element.
+        </audio>
+    </body>
+</html>
+<script type="text/javascript">
+    // jQuery1122034955968094034207_1517922118821({...})
+    function jQuery1122034955968094034207_1517922118821(res) {
+        $.ajax.success(res)
+    }
+    $('.btn1').on('click', function() { // https://api.douban.com/v2/
+        $.ajax({
+            type: 'get',
+            url: 'https://api.douban.com/v2/movie/in_theaters',
+            // url: 'http://www.kugou.com/yy/index.php?r=play/getdata&hash=0B464599DB574F6BD1D9730135970DF8&album_id=516425&_=1500008067482',
+            dataType: 'jsonp',
+            // jsonp: "jsonp",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            // jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+            success: function (res) {
+                console.log(res)
+            }
+        })
+    })
+</script>
